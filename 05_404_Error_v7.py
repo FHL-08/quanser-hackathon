@@ -5,7 +5,7 @@ Use this file as your sandbox: edit one section at a time, read the comments,
 and try things out as you learn.
 
 Run it:
-    python -m demos.blank_sim
+    python -m demos.05_404_Error_v7
 """
 
 from __future__ import annotations
@@ -21,7 +21,7 @@ from demos._shared import run_with_viewer
 # ---------------------------------------------------------------------------
 # Quick knobs to tweak the experience
 # ---------------------------------------------------------------------------
-MODE = "mirror"  # keep "sim" until you have hardware; use "mirror" for hardware+sim
+MODE = "sim"  # keep "sim" until you have hardware; use "mirror" for hardware+sim
 USE_PANDA_VIEWER = True  # Panda3D window that shows the arm; set False for console only
 USE_PYBULLET_GUI = False  # Bullet's debug sliders (rarely needed)
 TIME_STEP = 1.0 / 240.0
@@ -323,7 +323,7 @@ def main() -> None:
 
 def student_script(arm: QArmBase) -> None:
     """
-    BEGINNER PLAYGROUND: put your experiments here.
+    BEGINNER PLAYGROUND
 
     This function runs after the viewer is on-screen (when enabled), so you can see everything.
     Uncomment one idea at a time or replace them with your own.
