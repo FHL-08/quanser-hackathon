@@ -1,0 +1,48 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Blank Sim (default)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "blank_sim",
+      "justMyCode": true,
+      "args": []
+    },
+    {
+      "name": "Pick and Place Demo",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "demos.pick_and_place",
+      "justMyCode": true,
+      "args": []
+    },
+    {
+      "name": "Scene Objects Demo",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "demos.scene_objects",
+      "justMyCode": true,
+      "args": []
+    },
+    {
+      "name": "Label Demo",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "demos.label_demo",
+      "justMyCode": true,
+      "args": []
+    },
+    {
+      "name": "Hoop Segments Demo",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "demos.hoop_segments",
+      "justMyCode": true,
+      "args": []
+    }
+  ]
+}
