@@ -28,11 +28,12 @@ TIME_STEP = 1.0 / 240.0
 HEADLESS_SECONDS = 10.0  # how long to run when no viewer is open
 SHOW_VIEWER_SLIDERS = False
 RELOAD_MESHES = False
-STEP_DELAY_S = 0.92
+STEP_DELAY_S = 1.0
+GRIP_DELAY_S = 0.25
 
 # End-Effector targets in `(x, y, z)`.
 TARGETS: dict[str, tuple[float, float, float]] = {
-    "home": (0.3, -0.15, 0.25),
+    "home": (0.3, -0.09, 0.245),
 
     "greenB": (0.32, 0.07, 0.01),
     "greenC": (0.2, 0.11, 0.01),
@@ -77,122 +78,113 @@ TARGETS: dict[str, tuple[float, float, float]] = {
 SEQUENCE: list[tuple[str, str]] = [
     ("Return home", "home"),
     ("Open gripper", "open"),
+
+    ("Pick hoop", "purpleE"),
+    ("Close gripper", "close"),
+    ("Lift hoop", "lift_purpleE"),
+    ("Drop Hoop", "purple_drop"),
+    ("Open gripper", "open"),
+
+    ("Pick hoop", "purpleA"),
+    ("Close gripper", "close"),
+    ("Lift hoop", "lift_purpleA"),
+    ("Drop Hoop", "purple_drop"),
+    ("Open gripper", "open"),
+
+    ("Lift hoop", "lift_purpleG"),
+    ("Pick hoop", "purpleG"),
+    ("Close gripper", "close"),
+    ("Lift hoop", "lift_purpleG"),
+    ("Drop Hoop", "purple_drop"),
+    ("Open gripper", "open"),
+
+    ("Pick hoop", "greenB"),
+    ("Close gripper", "close"),
     ("Lift hoop", "lift_greenB"),
-    ("Pick Green", "greenB"),
-    ("Close gripper", "close"),
-    ("Lift hoop", "lift_greenB"),
-    ("Drop Hoop", "green_drop"),
-    ("Open gripper", "open"),
-
-    ("Lift hoop", "lift_greenC"),
-    ("Pick Green", "greenC"),
-    ("Close gripper", "close"),
-    ("Lift hoop", "lift_greenC"),
-    ("Drop Hoop", "green_drop"),
-    ("Open gripper", "open"),
-
-    ("Lift hoop", "lift_greenD"),
-    ("Pick Green", "greenD"),
-    ("Close gripper", "close"),
-    ("Lift hoop", "lift_greenD"),
-    ("Drop Hoop", "green_drop"),
-    ("Open gripper", "open"),
-
-    ("Lift hoop", "lift_greenF"),
-    ("Pick Green", "greenF"),
-    ("Close gripper", "close"),
-    ("Lift hoop", "lift_greenF"),
-    ("Drop Hoop", "green_drop"),
-    ("Open gripper", "open"),
-
-    ("Lift hoop", "lift_greenI"),
-    ("Pick Green", "greenI"),
-    ("Close gripper", "close"),
-    ("Lift hoop", "lift_greenI"),
-    ("Drop Hoop", "green_drop"),
-    ("Open gripper", "open"),
-
-    ("Lift hoop", "lift_greenH"),
-    ("Pick Green", "greenH"),
-    ("Close gripper", "close"),
-    ("Lift hoop", "lift_greenH"),
     ("Drop Hoop", "green_drop"),
     ("Open gripper", "open"),
 
     ("Lift hoop", "lift_greenN"),
-    ("Pick Green", "greenN"),
+    ("Pick hoop", "greenN"),
     ("Close gripper", "close"),
     ("Lift hoop", "lift_greenN"),
     ("Drop Hoop", "green_drop"),
     ("Open gripper", "open"),
 
     ("Lift hoop", "lift_greenP"),
-    ("Pick Green", "greenP"),
+    ("Pick hoop", "greenP"),
     ("Close gripper", "close"),
     ("Lift hoop", "lift_greenP"),
     ("Drop Hoop", "green_drop"),
     ("Open gripper", "open"),
 
-    ("Lift hoop", "lift_purpleA"),
-    ("Pick Green", "purpleA"),
-    ("Close gripper", "close"),
-    ("Lift hoop", "lift_purpleA"),
-    ("Drop Hoop", "purple_drop"),
-    ("Open gripper", "open"),
-
-    ("Lift hoop", "lift_purpleE"),
-    ("Pick Green", "purpleE"),
-    ("Close gripper", "close"),
-    ("Lift hoop", "lift_purpleE"),
-    ("Drop Hoop", "purple_drop"),
-    ("Open gripper", "open"),
-
-    ("Lift hoop", "lift_purpleG"),
-    ("Pick Green", "purpleG"),
-    ("Close gripper", "close"),
-    ("Lift hoop", "lift_purpleG"),
-    ("Drop Hoop", "purple_drop"),
-    ("Open gripper", "open"),
-
     ("Lift hoop", "lift_purpleM"),
-    ("Pick Green", "purpleM"),
+    ("Pick hoop", "purpleM"),
     ("Close gripper", "close"),
     ("Lift hoop", "lift_purpleM"),
     ("Drop Hoop", "purple_drop"),
     ("Open gripper", "open"),
 
-    ("Lift hoop", "lift_purpleJ"),
-    ("Pick Green", "purpleJ"),
+    ("Lift hoop", "lift_greenC"),
+    ("Pick hoop", "greenC"),
     ("Close gripper", "close"),
-    ("Lift hoop", "lift_purpleJ"),
-    ("Drop Hoop", "purple_drop"),
-    ("Open gripper", "open"),
-
-    ("Lift hoop", "lift_purpleK"),
-    ("Pick Green", "purpleK"),
-    ("Close gripper", "close"),
-    ("Lift hoop", "lift_purpleK"),
-    ("Drop Hoop", "purple_drop"),
-    ("Open gripper", "open"),
-
-    ("Lift hoop", "lift_purpleL"),
-    ("Pick Green", "purpleL"),
-    ("Close gripper", "close"),
-    ("Lift hoop", "lift_purpleL"),
-    ("Drop Hoop", "purple_drop"),
+    ("Lift hoop", "lift_greenC"),
+    ("Drop Hoop", "green_drop"),
     ("Open gripper", "open"),
 
     ("Lift hoop", "lift_purpleO"),
-    ("Pick Green", "purpleO"),
+    ("Pick hoop", "purpleO"),
     ("Close gripper", "close"),
     ("Lift hoop", "lift_purpleO"),
     ("Drop Hoop", "purple_drop"),
     ("Open gripper", "open"),
 
-    ("Return home", "home"),
+    ("Lift hoop", "lift_greenD"),
+    ("Pick hoop", "greenD"),
+    ("Close gripper", "close"),
+    ("Lift hoop", "lift_greenD"),
+    ("Drop Hoop", "green_drop"),
+    ("Open gripper", "open"),
+
+    ("Pick hoop", "purpleJ"),
+    ("Close gripper", "close"),
+    ("Lift hoop", "lift_purpleJ"),
+    ("Drop Hoop", "purple_drop"),
+    ("Open gripper", "open"),
+
+    ("Pick hoop", "greenH"),
+    ("Close gripper", "close"),
+    ("Lift hoop", "lift_greenH"),
+    ("Drop Hoop", "green_drop"),
+    ("Open gripper", "open"),
+
+    ("Pick hoop", "purpleK"),
+    ("Close gripper", "close"),
+    ("Lift hoop", "lift_purpleK"),
+    ("Drop Hoop", "purple_drop"),
+    ("Open gripper", "open"),
+
+    ("Pick hoop", "greenI"),
+    ("Close gripper", "close"),
+    ("Lift hoop", "lift_greenI"),
+    ("Drop Hoop", "green_drop"),
+    ("Open gripper", "open"),
+
+    ("Pick hoop", "purpleL"),
+    ("Close gripper", "close"),
+    ("Lift hoop", "lift_purpleL"),
+    ("Drop Hoop", "purple_drop"),
+    ("Open gripper", "open"),
+
+    ("Lift hoop", "lift_greenF"),
+    ("Pick hoop", "greenF"),
+    ("Close gripper", "close"),
+    ("Lift hoop", "lift_greenF"),
+    ("Drop Hoop", "green_drop"),
+    ("Open gripper", "open"),
 ]
 
-GRIPPER_OPEN_ANGLE = 0.2
+GRIPPER_OPEN_ANGLE = 0.4
 GRIPPER_CLOSED_ANGLE = 0.6
 
 LINK1 = 0.14
@@ -215,7 +207,6 @@ def inverse_kinematics(target_name: str) -> None:
 
     p_2_to_EE = p_EE - joint1_pos
     lambda_4 = np.linalg.norm(p_2_to_EE)
-    print((LAMBDA2**2 + LAMBDA3**2 - lambda_4**2)/(2*LAMBDA2*LAMBDA3))
     delta_now = np.arccos((LAMBDA2**2 + LAMBDA3**2 - lambda_4**2)/(2*LAMBDA2*LAMBDA3))
     q3 = np.pi/2 + (BETA - delta_now)
 
@@ -334,12 +325,17 @@ def student_script(arm: QArmBase) -> None:
     for action, target in SEQUENCE:
         if target == "open":
             arm.set_gripper_position(GRIPPER_OPEN_ANGLE)
+            time.sleep(GRIP_DELAY_S)
         elif target == "close":
             arm.set_gripper_position(GRIPPER_CLOSED_ANGLE)
+            time.sleep(STEP_DELAY_S)
         else:
-            go_to(arm, target, STEP_DELAY_S)
-        time.sleep(STEP_DELAY_S)
+            if action == "Lift hoop":
+                go_to(arm, target, 0.65*STEP_DELAY_S)
+            else:
+                go_to(arm, target, STEP_DELAY_S)
 
+        
 
 if __name__ == "__main__":
     main()

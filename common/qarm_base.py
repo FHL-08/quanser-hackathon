@@ -49,8 +49,8 @@ class QArmBase(ABC):
     need to implement the instantaneous variant.
     """
 
-    DEFAULT_JOINT_SPEED = 0.8  # rad/s
-    CONTROL_STEP_S = 0.05
+    DEFAULT_JOINT_SPEED = 0.9  # rad/s
+    CONTROL_STEP_S = 0.01
 
     @abstractmethod
     def home(self) -> None:
@@ -80,7 +80,11 @@ class QArmBase(ABC):
         steps = max(1, int(math.ceil(duration / self.CONTROL_STEP_S)))
         dt = duration / steps if steps > 0 else 0.0
         for step in range(1, steps + 1):
-            alpha = step / steps
+            tau = step / steps
+            
+            # Apply Cosine S-Curve to ease-in and ease-out
+            alpha = (1.0 - math.cos(tau * math.pi)) / 2.0
+            
             intermediate = [c + (t - c) * alpha for c, t in zip(current, targets)]
             self._set_joint_positions_instant(intermediate)
             if step < steps and dt > 0.0:

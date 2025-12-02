@@ -85,7 +85,7 @@ class SimQArm(QArmBase):
             raise RuntimeError("No movable joints found in the simulation.")
         self.joint_order: list[int] = list(self._arm_joint_indices)
         self.joint_names: list[str] = [self.env.joint_names[idx] for idx in self.joint_order]
-        self.joint_name_hint: tuple[str, ...] = DEFAULT_JOINT_ORDER  # yaw, shoulder, elbow, wrist
+        self.joint_name_hint: tuple[str, ...] = DEFAULT_JOINT_ORDER
         self._home_pose = self._validate_home_pose(home_pose)
         self._auto_step = bool(auto_step)
         self._gripper_limits = self._query_gripper_limits()
