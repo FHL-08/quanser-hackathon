@@ -2,9 +2,7 @@
 
 This repository provides our solution to the Quanser Hackathon on the QArm.
 
-It runs the inverse kinematics algorithm for picking and placing the coloured hoops
-algorithm on the digital twin of the QArm that maps to the real arm by
-commanding joint angles.
+It runs the inverse kinematics algorithm to pick and place the coloured hoops on the digital twin of the QArm, which maps to the real arm by commanding joint angles.
 
 ## Hackathon context
 
