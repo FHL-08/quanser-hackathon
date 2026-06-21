@@ -1,21 +1,15 @@
 # QArm Hackathon Framework (WIP)
 
-This repository provides the core structure for a hackathon centred around the
-Quanser QArm robotic manipulator.
+This repository provides our solution to the Quanser Hackathon on the QArm.
 
-You will control a QArm in simulation (and later on real hardware) by
-commanding joint angles and implementing their own kinematics and strategies
-for picking and placing coloured hoops onto stands.
+It runs the inverse kinematics algorithm for picking and placing the coloured hoops
+algorithm on the digital twin of the QArm that maps to the real arm by
+commanding joint angles.
 
 ## Hackathon context
 
 The brief is to pick and place hoops from fixed locations on the board to their 
-colour-matched stands. That can be
-approached in many ways, and the simulator exposes helper features including:
-
-1. Importing kinematic objects into the scene.
-2. Adding labels in the viewer (handy while debugging inverse kinematics).
-3. Accurate board geometry plus stand positions to match the real setup.
+colour-matched stands.
 
 The only control interface available is direct joint-angle commands, so we derived a simple
 inverse kinematics solution for this arm.
